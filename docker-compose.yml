@@ -1,0 +1,27 @@
+version: '3'
+services:
+  listings-services:
+    build: './listings-services'
+    depends_on:
+      - listings-services-db
+    volumes:
+      - ./listings-services:/opt/docker/clasifeid-app
+
+  listings-services-db:
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=db
+    image: mysql:5.7.20
+
+  users-services:
+    build: './users-services'
+    depends_on:
+      - users-services-db
+    volumes:
+      - ./users-services:/opt/docker/clasifeid-app
+
+  users-services-db:
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=db
+    image: mysql:5.7.20
