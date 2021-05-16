@@ -6,4 +6,4 @@ WORKDIR /opt/docker/classified-app
 
 RUN npm install
 
-CMD npm run watch
+CMD npm start

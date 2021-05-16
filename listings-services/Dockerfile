@@ -1,8 +1,8 @@
 FROM node:14
 
-COPY . /opt/docker/clasifeid-app
+COPY . /opt/docker/classified-app
 
-WORKDIR /opt/docker/clasifeid-app
+WORKDIR /opt/docker/classified-app
 
 RUN npm install
 
