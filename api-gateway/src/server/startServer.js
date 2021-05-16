@@ -2,7 +2,9 @@ import { ApolloServer } from 'apollo-server-express';
 import express from 'express';
 import cors from 'cors';
 import coockieParser from 'cookie-parser';
+
 import accessEnv from '#root/helpers/accessEnv';
+import formatGraphqlErrors from '#root/helpers/formatGraphqlErrors';
 
 import resolvers from '#root/graphql/resolvers';
 import typeDefs from '#root/graphql/typeDefs';
@@ -10,6 +12,7 @@ import typeDefs from '#root/graphql/typeDefs';
 const PORT = accessEnv('PORT', 7000);
 
 const apolloServer = new ApolloServer({
+  formatError: formatGraphqlErrors,
   resolvers,
   typeDefs,
 });
